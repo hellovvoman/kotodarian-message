@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Квест: Цифровой Замок Хогвартс</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .question-container {
+            margin: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .question-container h3 {
+            margin-bottom: 20px;
+        }
+        .answer-btn {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .answer-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Добро пожаловать в квест: Цифровой Замок Хогвартс!</h1>
+    
+    <div id="question-1" class="question-container">
+        <h3>Загадка 1: Как называется заклинание, которое использовал Гермиона Грейнджер для возвращения в прошлое в 'Тайной комнате'?</h3>
+        <button class="answer-btn" onclick="checkAnswer(1, 'Темпус')">Темпус</button>
+        <button class="answer-btn" onclick="checkAnswer(1, 'Реверто')">Реверто</button>
+        <button class="answer-btn" onclick="checkAnswer(1, 'Обливиэйт')">Обливиэйт</button>
+    </div>
+
+    <div id="question-2" class="question-container" style="display: none;">
+        <h3>Загадка 2: Как называется родная планета Йоды, на которой он провел последние годы своей жизни?</h3>
+        <button class="answer-btn" onclick="checkAnswer(2, 'Дагоба')">Дагоба</button>
+        <button class="answer-btn" onclick="checkAnswer(2, 'Татуин')">Татуин</button>
+        <button class="answer-btn" onclick="checkAnswer(2, 'Эндор')">Эндор</button>
+    </div>
+
+    <div id="question-3" class="question-container" style="display: none;">
+        <h3>Загадка 3: Какое оружие использует Мандалорец для охоты на цели в 'Мандалорце'?</h3>
+        <button class="answer-btn" onclick="checkAnswer(3, 'Бластер')">Бластер</button>
+        <button class="answer-btn" onclick="checkAnswer(3, 'Меч Дарксейд')">Меч Дарксейд</button>
+        <button class="answer-btn" onclick="checkAnswer(3, 'Энергетический арбалет')">Энергетический арбалет</button>
+    </div>
+
+    <div id="result" style="display: none; text-align: center; margin-top: 30px;">
+        <h2>Поздравляем, вы завершили квест!</h2>
+        <a href="https://hellovvoman.github.io/kotodarians.net-save-galaxy/" class="answer-btn">Перейти на главный сайт</a>
+    </div>
+
+    <script>
+        // Массив правильных ответов
+        const correctAnswers = {
+            1: 'Темпус',
+            2: 'Дагоба',
+            3: 'Бластер'
+        };
+
+        function checkAnswer(questionNumber, userAnswer) {
+            if (userAnswer === correctAnswers[questionNumber]) {
+                alert('Правильный ответ!');
+                // Скрыть текущий вопрос и показать следующий
+                document.getElementById('question-' + questionNumber).style.display = 'none';
+                if (questionNumber < 3) {
+                    document.getElementById('question-' + (questionNumber + 1)).style.display = 'block';
+                } else {
+                    document.getElementById('result').style.display = 'block';
+                }
+            } else {
+                alert('Неправильный ответ! Попробуйте снова.');
+            }
+        }
+    </script>
+</body>
+</html>

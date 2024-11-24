@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Квест: Пробуждение Силы: Путь Котодарианца</title>
+    <title>Квест: Цифровой Замок Хогвартс</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -43,40 +43,53 @@
     <h1>Добро пожаловать в квест: Цифровой Замок Хогвартс!</h1>
     
     <div id="question-1" class="question-container">
-        <h3>Загадка 1: Какое заклинание Гермиона использовала для того, чтобы создать многократные версии себя, чтобы сдать экзамены в Хогвартсе?</h3>
-        <button class="answer-btn" onclick="checkAnswer(1, 'Дупликарум')">Дупликарум</button>
-        <button class="answer-btn" onclick="checkAnswer(1, 'Эффидус')">Эффидус</button>
-        <button class="answer-btn" onclick="checkAnswer(1, 'Дискьери')">Дискьери</button>
+        <h3>Загадка 1: Как называется заклинание, которое использовала Гермиона Грейнджер для возвращения в прошлое в 'Тайной комнате'?</h3>
+        <button class="answer-btn" onclick="checkAnswer(1, 'Темпус')">Темпус</button>
+        <button class="answer-btn" onclick="checkAnswer(1, 'Реверто')">Реверто</button>
+        <button class="answer-btn" onclick="checkAnswer(1, 'Обливиэйт')">Обливиэйт</button>
     </div>
 
     <div id="question-2" class="question-container" style="display: none;">
-        <h3>Загадка 2: Кто был мастером Квай-Гона Джина, который обучил его искусству управления силой?</h3>
-        <button class="answer-btn" onclick="checkAnswer(2, 'Тоггаран')">Тоггаран</button>
-        <button class="answer-btn" onclick="checkAnswer(2, 'Оби-Ван Кеноби')">Оби-Ван Кеноби</button>
-        <button class="answer-btn" onclick="checkAnswer(2, 'Дарт Плагус')">Дарт Плагус</button>
+        <h3>Загадка 2: Как называется родная планета Йоды, на которой он провел последние годы своей жизни?</h3>
+        <button class="answer-btn" onclick="checkAnswer(2, 'Дагоба')">Дагоба</button>
+        <button class="answer-btn" onclick="checkAnswer(2, 'Татуин')">Татуин</button>
+        <button class="answer-btn" onclick="checkAnswer(2, 'Эндор')">Эндор</button>
     </div>
 
     <div id="question-3" class="question-container" style="display: none;">
-        <h3>Загадка 3: Как называется планета, на которой Мандалорец встречает Грогу и пытается вернуть его к джедаям?</h3>
-        <button class="answer-btn" onclick="checkAnswer(3, 'Набу')">Набу</button>
-        <button class="answer-btn" onclick="checkAnswer(3, 'Татуин')">Татуин</button>
-        <button class="answer-btn" onclick="checkAnswer(3, 'Соскин')">Соскин</button>
+        <h3>Загадка 3: Какое оружие использует Мандалорец для охоты на цели в 'Мандалорце'?</h3>
+        <button class="answer-btn" onclick="checkAnswer(3, 'Бластер')">Бластер</button>
+        <button class="answer-btn" onclick="checkAnswer(3, 'Меч Дарксейд')">Меч Дарксейд</button>
+        <button class="answer-btn" onclick="checkAnswer(3, 'Энергетический арбалет')">Энергетический арбалет</button>
     </div>
 
-    <div id="question-4" class="question-container" style="display: none;">
-        <h3>Загадка 4: Как назывался магический предмет, который использовался для защиты от смертоносных проклятий в 'Гарри Поттер и Орден Феникса'?</h3>
-        <button class="answer-btn" onclick="checkAnswer(4, 'Зеркало Судьбы')">Зеркало Судьбы</button>
-        <button class="answer-btn" onclick="checkAnswer(4, 'Щит Дамблдора')">Щит Дамблдора</button>
-        <button class="answer-btn" onclick="checkAnswer(4, 'Проклятое зеркало')">Проклятое зеркало</button>
+    <div id="result" style="display: none; text-align: center; margin-top: 30px;">
+        <h2>Поздравляем, вы завершили квест!</h2>
+        <a href="https://hellovvoman.github.io/kotodarians.net-save-galaxy/" class="answer-btn">Перейти на главный сайт</a>
     </div>
 
-    <div id="question-5" class="question-container" style="display: none;">
-        <h3>Загадка 5: Какое оружие использовал Йода в битве с Дартом Сидиусом?</h3>
-        <button class="answer-btn" onclick="checkAnswer(5, 'Лазерный меч')">Лазерный меч</button>
-        <button class="answer-btn" onclick="checkAnswer(5, 'Световой кинжал')">Световой кинжал</button>
-        <button class="answer-btn" onclick="checkAnswer(5, 'Электрическая пушка')">Электрическая пушка</button>
-    </div>
+    <script>
+        // Массив правильных ответов
+        const correctAnswers = {
+            1: 'Темпус',
+            2: 'Дагоба',
+            3: 'Бластер'
+        };
 
-    <div id="question-6" class="question-container" style="display: none;">
-        <h3>Загадка 6: Какую технологию использует Мандалорец для создания энергетического поля, чтобы защитить себя от повреждений?</h3>
-        <button class="answer-btn" onclick="checkAnswer(6, 'Т
+        function checkAnswer(questionNumber, userAnswer) {
+            if (userAnswer === correctAnswers[questionNumber]) {
+                alert('Правильный ответ!');
+                // Скрыть текущий вопрос и показать следующий
+                document.getElementById('question-' + questionNumber).style.display = 'none';
+                if (questionNumber < 3) {
+                    document.getElementById('question-' + (questionNumber + 1)).style.display = 'block';
+                } else {
+                    document.getElementById('result').style.display = 'block';
+                }
+            } else {
+                alert('Неправильный ответ! Попробуйте снова.');
+            }
+        }
+    </script>
+</body>
+</html>
